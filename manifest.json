@@ -1,0 +1,24 @@
+{
+  "dir": "ltr",
+  "lang": "en",
+  "name": "Triventure Dashboard",
+  "short_name": "Dashboard",
+  "scope": "/",
+  "display": "standalone",
+  "start_url": "https://dash.triventure.co.in/",
+  "background_color": "#0f1e32",
+  "theme_color": "transparent",
+  "description": "",
+  "orientation": "any",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "./assets/logo_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "url": "https://dash.triventure.co.in/",
+  "generated": true
+}
