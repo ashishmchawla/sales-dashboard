@@ -21,12 +21,11 @@ $(document).ready(function() {
     $.ajax({
         url: baseUrl + '/user_details/' + id,
         type: 'get',
-        success: function(data) {
-            console.log(data);
+        headers: {
+            'Authorization': "Bearer " + token
         },
-        error: function(errorData) {
-
-        }
+        success: function(data) {},
+        error: function(errorData) {}
     });
 });
 </script>
