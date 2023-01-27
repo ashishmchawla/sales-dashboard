@@ -13,3 +13,12 @@
 .title_value_smallcase {
   text-transform: lowercase;
 }
+a.edit_link {
+  color: #007bff;
+}
+
+a.edit_link:hover {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}

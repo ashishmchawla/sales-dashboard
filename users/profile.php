@@ -27,36 +27,40 @@ if( !isset($_SESSION['token']) ) {
         <div class="tab-content profile-tab" id="myTabContent">
             <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <h3>Profile Details</h3>
-                <br />
+                <hr />
                 <div class="row">
                     <div class="col">
                         <h6 class="title">First Name</h6>
+                        <hr />
                         <h4 class="title_value" id="first_name"></h4>
                     </div>
                     <div class="col">
                         <h6 class="title">Last Name</h6>
+                        <hr />
                         <h4 class="title_value" id="last_name"></h4>
                     </div>
                 </div>
+                <br />
                 <div class="row">
                     <div class="col">
                         <h6 class="title">Phone</h6>
+                        <hr />
                         <h4 class="title_value" id="phone"></h4>
                     </div>
                     <div class="col">
                         <h6 class="title">Email</h6>
+                        <hr />
                         <h4 class="title_value_smallcase" id="email"></h4>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade show" id="targets" role="tabpanel" aria-labelledby="targets-tab">
                 <h3>Target Details</h3>
-                <div class="d-flex flex-row-reverse bd-highlight">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#targetModal">
-                        Edit Targets
-                    </button>
-                </div>
+                <hr />
+                <!-- Button trigger modal -->
+                <a class="edit_link" data-toggle="modal" data-target="#targetModal">
+                    Edit This Month Target
+                </a>
                 <br />
                 <table class="display table hover" width="100%" id="targetTable">
                     <thead>
