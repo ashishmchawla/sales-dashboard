@@ -42,7 +42,43 @@ if( !isset($_SESSION['token']) ) {
                 </div>
                 <div class="col">
                     <h6 class="title">Email</h6>
-                    <h4 class="title_value_smallcase" id="email"></h4>
+                    <h4 class="title_value" id="email"></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h6 class="title">Location</h6>
+                    <h4 class="title_value" id="location"></h4>
+                </div>
+                <div class="col">
+                    <h6 class="title">Lead Status</h6>
+                    <h4 class="title_value_badge" id="lead_status"></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h6 class="title">Account Category</h6>
+                    <h4 class="title_value" id="account_category"></h4>
+                </div>
+                <div class="col">
+                    <h6 class="title">Account Code</h6>
+                    <h4 class="title_value" id="account_code"></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h6 class="title">Third Party</h6>
+                    <h4 class="title_value" id="third_party"></h4>
+                </div>
+                <div class="col">
+                    <h6 class="title">Stock Margin</h6>
+                    <h4 class="title_value" id="stock_margin"></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h6 class="title">Lead Owner</h6>
+                    <h4 class="title_value" id="lead_owner"></h4>
                 </div>
             </div>
         </div>
@@ -71,6 +107,11 @@ $(document).ready(function() {
                 $('#last_name').html(userDetails.last_name);
                 $('#email').html(userDetails.email);
                 $('#contact').html(userDetails.contact);
+                $('#location').html(userDetails.location);
+                $('#account_category').html(userDetails.account_category);
+                $('#account_code').html(userDetails.account_code);
+                $('#lead_status').html(userDetails.lead_status);
+                $('#lead_owner').html(userDetails.lead_owner);
             }
         },
         error: function(errorData) {}
