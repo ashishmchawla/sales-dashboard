@@ -68,7 +68,7 @@ $(document).ready(function() {
         var obj = data;
         if (obj.id !== undefined) {
             $('#token').val('<?php echo $_COOKIE['token']; ?>');
-            $('#admin_name').val(obj.name);
+            $('#admin_name').val(obj.first_name + ' ' + obj.last_name);
             $('#sesstionCreate').submit();
         } else {
             window.location.href = './';

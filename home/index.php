@@ -16,11 +16,25 @@ if( !isset($_SESSION['token']) ) {
 </div>
 <div class="analytics-wrapper container-fluid">
     <div class="row">
-        <div class="col-md-6" style="margin-bottom: 10px;">
-            <div id="users_chart"></div>
+        <div class="col-md-12">
+            <div id="chart_area">
+                <div id="columnchart_material"></div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+            <h3> New Clients</h3>
+            <div id="chart_area">
+                <div id="columnchart_new_material"></div>
+            </div>
         </div>
         <div class="col-md-6">
-            <div id="chart_area"></div>
+            <h3> Existing Clients</h3>
+            <div id="chart_area">
+                <div id="columnchart_existing_material"></div>
+            </div>
         </div>
     </div>
     <br>
@@ -31,154 +45,107 @@ if( !isset($_SESSION['token']) ) {
 ?>
 <script>
 google.charts.load('current', {
-    packages: ['corechart', 'bar']
+    'packages': ['bar']
 });
-google.charts.setOnLoadCallback();
+// google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawNewUserChart);
+google.charts.setOnLoadCallback(drawExistingUserChart);
 
-function loadGraph() {
-    $.ajax({
-        url: baseUrl + "/admin/cashflowGraph",
+async function loadGraph() {
+    await $.ajax({
+        url: baseUrl + "/allServicesGraph",
         headers: {
             'Authorization': "Bearer " + token
         },
     }).done(function(response) {
-        drawCashFlowGraph(response, 'Weekly Cash Flow');
-    });
-}
-
-function loadCommissionGraph() {
-    $.ajax({
-        url: baseUrl + "/admin/commissionGraph",
-        headers: {
-            'Authorization': "Bearer " + token
-        },
-    }).done(function(response) {
-        drawCommissionGraph(response, 'Weekly Commissions');
-    });
-}
-
-function loadUsersGraph() {
-    $.ajax({
-        url: baseUrl + "/admin/userGraph",
-        headers: {
-            'Authorization': "Bearer " + token
-        },
-    }).done(function(response) {
-        drawUsersGraph(response, 'Daily Users');
-    });
-}
-
-function drawCashFlowGraph(chart_data, title) {
-    var jsonData = chart_data;
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Date');
-    data.addColumn('number', 'Desposit');
-    data.addColumn('number', 'Withdraw Request');
-    data.addColumn('number', 'Withdraw Fulfilled');
-    $.each(jsonData, function(i, element) {
-        var date = element.date;
-        var deposits = parseFloat($.trim(element.deposits));
-        var withdraw_request = parseFloat($.trim(element.withdraw_request));
-        var withdraw_fulfilled = parseFloat($.trim(element.withdraw_fulfilled));
-        data.addRows([
-            [date, deposits, withdraw_request, withdraw_fulfilled]
-        ]);
-    });
-    var options = {
-        title: title,
-        hAxis: {
-            title: "Dates",
-            direction: -1,
-            slantedText: true,
-            slantedTextAngle: 45,
-        },
-        vAxis: {
-            title: 'CashFlow'
-        },
-        height: 300,
-        legend: {
-            position: 'top',
-            maxLines: 3
-        },
-    };
-
-    var chart = new google.visualization.ColumnChart(document.getElementById('chart_area'));
-    chart.draw(data, options);
-}
-
-function drawCommissionGraph(chart_data, title) {
-    var jsonData = chart_data;
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Match');
-    data.addColumn('number', 'Earned');
-    data.addColumn('number', 'Distributed');
-    $.each(jsonData, function(i, element) {
-        var name = element.name;
-        var earned = parseFloat($.trim(element.earned));
-        var distributed = parseFloat($.trim(element.distributed));
-        data.addRows([
-            [name, earned, distributed]
-        ]);
-    });
-    var options = {
-        title: title,
-        hAxis: {
-            title: "Matches",
-            direction: -1,
-            slantedText: true,
-            slantedTextAngle: 45,
-        },
-        vAxis: {
-            title: 'Commissions'
-        },
-        height: 300,
-        legend: {
-            position: 'top',
-            maxLines: 3
-        },
-    };
-
-    var chart = new google.visualization.ColumnChart(document.getElementById('commission_chart_area'));
-    chart.draw(data, options);
-}
-
-function drawUsersGraph(chart_data, title) {
-    var jsonData = chart_data;
-    var data = new google.visualization.arrayToDataTable(jsonData);
-    var options = {
-        title: title,
-        hAxis: {
-            title: "Dates",
-            direction: -1,
-            slantedText: true,
-            slantedTextAngle: 45,
-        },
-        vAxis: {
-            title: 'Users'
-        },
-        height: 300,
-        legend: {
-            position: 'top',
-            maxLines: 3
-        },
-        seriesType: 'bars',
-        series: {
-            1: {
-                type: 'line',
-                pointShape: 'circle',
-                pointSize: 5
-            }
+        console.log(response);
+        if (response.status == 1) {
+            drawChart(response.graphData, response.month);
         }
+    });
+}
+
+function drawChart(chart_data, title) {
+
+    var data = google.visualization.arrayToDataTable(chart_data);
+
+    var options = {
+        chart: {
+            title: 'Company Performance -' + title,
+            subtitle: 'Actuals & Targets',
+        },
+        height: 400,
+        width: '90%',
+        legend: {
+            position: 'bottom',
+        },
     };
 
-    var chart = new google.visualization.ComboChart(document.getElementById('users_chart'));
+    var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+    chart.draw(data, options);
+
+    // var chart = new google.visualization.Bar(document.getElementById('columnchart_material'));
+    // chart.draw(data, options);
+
+}
+
+function drawNewUserChart(chart_data, title) {
+
+    var data = google.visualization.arrayToDataTable([
+        ['Element', 'Density'],
+        ['Copper', 8.94],
+        ['Silver', 10.49],
+        ['Gold', 19.30],
+        ['Platinum', 21.45]
+    ]);
+
+    var options = {
+        chart: {
+            title: 'User-wise Performance',
+            subtitle: 'Actuals & Targets',
+        },
+        height: 400,
+        width: '90%',
+        legend: {
+            position: 'bottom',
+        },
+    };
+
+    var chart = new google.charts.Bar(document.getElementById('columnchart_new_material'));
     chart.draw(data, options);
 }
+
+function drawExistingUserChart(chart_data, title) {
+
+    var data = google.visualization.arrayToDataTable([
+        ['Element', 'Density'],
+        ['Copper', 8.94],
+        ['Silver', 10.49],
+        ['Gold', 19.30],
+        ['Platinum', 21.45]
+    ]);
+
+    var options = {
+        chart: {
+            title: 'User-wise Performance',
+            subtitle: 'Actuals & Targets',
+        },
+        height: 400,
+        width: '90%',
+        legend: {
+            position: 'bottom',
+        },
+    };
+
+    var chart = new google.charts.Bar(document.getElementById('columnchart_existing_material'));
+    chart.draw(data, options);
+}
+
 
 $(document).ready(function() {
     let analyticsResponse;
-    // loadGraph();
-    // loadCommissionGraph();
-    // loadUsersGraph();
+    loadGraph();
+    drawNewUserChart();
+    drawExistingUserChart();
 });
 </script>

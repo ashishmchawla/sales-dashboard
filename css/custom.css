@@ -1,8 +1,11 @@
-
 .center {
-    text-align: center;
+  text-align: center;
 }
 .centerClass {
-    align-items: center;
-    text-align: center;
+  align-items: center;
+  text-align: center;
+}
+#chart_area {
+  background-color: white;
+  padding: 2%;
 }

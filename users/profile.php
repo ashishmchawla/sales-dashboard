@@ -62,6 +62,7 @@ if( !isset($_SESSION['token']) ) {
                     Edit This Month Target
                 </a>
                 <br />
+                <br />
                 <table class="display table hover" width="100%" id="targetTable">
                     <thead>
                         <tr>
@@ -205,6 +206,8 @@ $(document).ready(function() {
         }).done(function(response) {
             console.log('Successful hit!');
             console.log(response);
+            $('#targetModal').modal('hide');
+            window.location.reload();
         })
     });
 

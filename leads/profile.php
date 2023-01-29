@@ -116,6 +116,22 @@ if( !isset($_SESSION['token']) ) {
 
 <script>
 let id = '<?php echo $_GET['id']; ?>';
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct",
+    "Nov", "Dec"
+];
+
+
+function formatAMPM(date) {
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
+}
+
 $(document).ready(function() {
     $.ajax({
         url: baseUrl + '/lead_details/' + id,
@@ -158,12 +174,15 @@ $(document).ready(function() {
                 $('#cardContainer').css('display', 'block');
                 $('#blankDiv').css('display', 'none');
                 for (var i = 0; i < activities.length; i++) {
+                    var d = new Date(activities[i].created_at);
+                    var dater = d.getDate() + '-' + months[d.getMonth()] + '-' + d.getFullYear() +
+                        ' ' + formatAMPM(d);
                     $('#cardContainer').append('<div class="card"><div class="card-header">' +
                         activities[i].activity_type +
                         '</div><div class="card-body"><h5 class="card-title">' + activities[i]
-                        .created_at +
-                        '</h5><p class="card-text">' + activities[i].activity_log +
-                        '</p> <a href = "#" class = "btn btn-primary"> Go somewhere </a></div></div>'
+                        .activity_log +
+                        '</h5><p class="card-text">' + dater +
+                        '</p> </div></div><br/>'
                     );
                 }
             }

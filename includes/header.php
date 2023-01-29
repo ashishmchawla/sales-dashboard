@@ -50,6 +50,7 @@
 
     <!-- Profile CSS -->
     <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/custom.css">
     <link rel="manifest" href="../manifest.json">
     <script src="../sw.js"></script>
     <!-- Google Charts -->
