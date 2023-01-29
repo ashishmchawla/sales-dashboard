@@ -201,7 +201,6 @@ async function loadThirdPartyChart() {
     });
 }
 
-
 function drawChart(chart_data, title) {
 
     var data = google.visualization.arrayToDataTable(chart_data);
