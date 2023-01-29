@@ -69,8 +69,8 @@ session_start();
     </script>
 
     <script>
-    // var base_url = "https://api.triventure.co.in/api";
-    var base_url = "http://sales-backend.test/api";
+    var base_url = "https://api.triventure.co.in/api";
+    // var base_url = "http://sales-backend.test/api";
     $(document).on('click', '#submit', function() {
 
         var email = $('#email').val();

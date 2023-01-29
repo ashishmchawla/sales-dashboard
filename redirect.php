@@ -6,8 +6,8 @@ if( isset($_POST['token']) ) {
     $token = $_POST['token'];
     $betaToken = "";
     $name = $_POST['admin_name'];
-    // $base_url = "https://api.triventure.co.in/api";
-    $base_url = "http://sales-backend.test/api";
+    $base_url = "https://api.triventure.co.in/api";
+    // $base_url = "http://sales-backend.test/api";
 
     $_SESSION['token'] = $token;
     $_SESSION['name'] = $name;
@@ -52,8 +52,8 @@ if( isset($_POST['token']) ) {
 }
 </style>
 <script>
-// var base_url = "https://api.triventure.co.in/api";
-var base_url = "http://sales-backend.test/api";
+var base_url = "https://api.triventure.co.in/api";
+// var base_url = "http://sales-backend.test/api";
 
 $(document).ready(function() {
     $.ajax({
