@@ -189,7 +189,7 @@ async function loadInsuranceChart() {
 
 async function loadThirdPartyChart() {
     await $.ajax({
-        url: baseUrl + "/getStatsByType/third_party",
+        url: baseUrl + "/getStatsByType/option_brains",
         headers: {
             'Authorization': "Bearer " + token
         },
