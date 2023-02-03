@@ -16,9 +16,14 @@ if( !isset($_SESSION['token']) ) {
 </div>
 <div class="analytics-wrapper container-fluid">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div id="chart_area">
                 <div id="columnchart"></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="chart_area">
+                <div id="columnchart_numbers"></div>
             </div>
         </div>
     </div>
@@ -99,6 +104,20 @@ async function loadGraph() {
         console.log(response);
         if (response.status == 1) {
             drawChart(response.graphData, response.month);
+        }
+    });
+}
+
+async function loadNumberGraph() {
+    await $.ajax({
+        url: baseUrl + "/allServicesGraphNumbers",
+        headers: {
+            'Authorization': "Bearer " + token
+        },
+    }).done(function(response) {
+        console.log(response);
+        if (response.status == 1) {
+            drawNumberChart(response.graphData, response.month);
         }
     });
 }
@@ -222,6 +241,31 @@ function drawChart(chart_data, title) {
 
     // var chart = new google.visualization.Bar(document.getElementById('columnchart'));
     // chart.draw(data, options);
+
+}
+
+
+function drawNumberChart(chart_data, title) {
+
+var data = google.visualization.arrayToDataTable(chart_data);
+
+var options = {
+    chart: {
+        title: 'Company Performance -' + title,
+        subtitle: 'Amounts',
+    },
+    height: 400,
+    width: '90%',
+    legend: {
+        position: 'bottom',
+    },
+};
+
+var chart = new google.charts.Bar(document.getElementById('columnchart_numbers'));
+chart.draw(data, options);
+
+// var chart = new google.visualization.Bar(document.getElementById('columnchart'));
+// chart.draw(data, options);
 
 }
 
@@ -361,6 +405,7 @@ function drawThirdPartyChart(chart_data, title) {
 $(document).ready(function() {
     let analyticsResponse;
     loadGraph();
+    loadNumberGraph();
     loadNewGraph();
     loadExistingGraph();
     loadAccountsGraph();
