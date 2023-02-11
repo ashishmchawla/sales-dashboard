@@ -42,6 +42,7 @@ if( !isset($_SESSION['token']) ) {
             </div>
         </div>
     </div>
+    <br />
     <div class="row">
         <div class="col-md-6">
             <h3>Accounts</h3>
@@ -56,6 +57,7 @@ if( !isset($_SESSION['token']) ) {
             </div>
         </div>
     </div>
+    <br />
     <div class="row">
         <div class="col-md-6">
             <h3> Mutual Funds</h3>
@@ -70,6 +72,7 @@ if( !isset($_SESSION['token']) ) {
             </div>
         </div>
     </div>
+    <br />
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">

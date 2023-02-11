@@ -32,12 +32,12 @@ if( !isset($_SESSION['token']) ) {
                 <div class="row">
                     <div class="col">
                         <h6 class="title">First Name</h6>
-                        <hr />
+
                         <h4 class="title_value" id="first_name"></h4>
                     </div>
                     <div class="col">
                         <h6 class="title">Last Name</h6>
-                        <hr />
+
                         <h4 class="title_value" id="last_name"></h4>
                     </div>
                 </div>
@@ -45,12 +45,12 @@ if( !isset($_SESSION['token']) ) {
                 <div class="row">
                     <div class="col">
                         <h6 class="title">Phone</h6>
-                        <hr />
+
                         <h4 class="title_value" id="phone"></h4>
                     </div>
                     <div class="col">
                         <h6 class="title">Email</h6>
-                        <hr />
+
                         <h4 class="title_value" id="email"></h4>
                     </div>
                 </div>
@@ -58,12 +58,12 @@ if( !isset($_SESSION['token']) ) {
                 <div class="row">
                     <div class="col">
                         <h6 class="title">Location</h6>
-                        <hr />
+
                         <h4 class="title_value" id="location"></h4>
                     </div>
                     <div class="col">
                         <h6 class="title">Lead Status</h6>
-                        <hr />
+
                         <h4 class="title_value"><span class="badge badge-primary" id="lead_status"></span></h4>
                     </div>
                 </div>
@@ -71,33 +71,20 @@ if( !isset($_SESSION['token']) ) {
                 <div class="row">
                     <div class="col">
                         <h6 class="title">Account Category</h6>
-                        <hr />
+
                         <h4 class="title_value" id="account_category"></h4>
                     </div>
                     <div class="col">
                         <h6 class="title">Account Code</h6>
-                        <hr />
+
                         <h4 class="title_value" id="account_code"></h4>
                     </div>
                 </div>
                 <br />
                 <div class="row">
                     <div class="col">
-                        <h6 class="title">Third Party</h6>
-                        <hr />
-                        <h4 class="title_value" id="third_party"></h4>
-                    </div>
-                    <div class="col">
-                        <h6 class="title">Stock Margin</h6>
-                        <hr />
-                        <h4 class="title_value" id="stock_margin"></h4>
-                    </div>
-                </div>
-                <br />
-                <div class="row">
-                    <div class="col">
                         <h6 class="title">Lead Owner</h6>
-                        <hr />
+
                         <h4 class="title_value" id="lead_owner"></h4>
                     </div>
                 </div>

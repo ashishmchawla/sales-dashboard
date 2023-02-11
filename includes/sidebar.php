@@ -11,7 +11,7 @@
                     <img src="../assets/dashboard.png" height="20"> Dashboard
                 </a>
                 <a href="../users/index.php" class="list-group-item list-group-item-action text-zooters">
-                    <img src="../assets/user.png" height="20"> Users
+                    <img src="../assets/user.png" height="20"> Employees
                 </a>
                 <a href="../leads/index.php" class="list-group-item list-group-item-action text-zooters">
                     <img src="../assets/people.png" height="20"> Leads
