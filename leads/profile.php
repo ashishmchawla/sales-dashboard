@@ -164,7 +164,7 @@ $(document).ready(function() {
                         ' ' + formatAMPM(d);
                     if (leadAmounts[i].marginValue > 0) {
                         $('#tableBody').append('<tr><td>' + dater + '</td><td>Margin<td>₹' +
-                            leadAmounts[i].marginValue + '<td><td>' + leadAmounts[i]
+                            leadAmounts[i].marginValue + '</td><td>' + leadAmounts[i]
                             .owner_first_name + ' ' + leadAmounts[i].owner_last_name +
                             '</td></tr>');
                     }
