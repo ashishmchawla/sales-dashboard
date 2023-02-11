@@ -88,7 +88,9 @@ if( !isset($_SESSION['token']) ) {
                         <h4 class="title_value" id="lead_owner"></h4>
                     </div>
                 </div>
-
+                <hr />
+                <br />
+                <h3>Stats</h3>
                 <div class="row">
                     <table class="table">
                         <thead>
@@ -145,7 +147,6 @@ $(document).ready(function() {
             if (data.status === 1) {
                 let leadDetails = data.details;
                 let leadAmounts = data.amounts;
-                console.log(leadAmounts);
                 $('#profile_name').html(leadDetails.first_name + ' ' + leadDetails.last_name);
                 $('#first_name').html(leadDetails.first_name);
                 $('#last_name').html(leadDetails.last_name);
@@ -157,6 +158,17 @@ $(document).ready(function() {
                 $('#lead_status').html(leadDetails.lead_status);
                 $('#lead_owner').html(leadDetails.owner_first_name + ' ' + leadDetails
                     .owner_last_name);
+                for (var i = 0; i < leadAmounts.length; i++) {
+                    var d = new Date(leadAmounts[i].created_at);
+                    var dater = d.getDate() + '-' + months[d.getMonth()] + '-' + d.getFullYear() +
+                        ' ' + formatAMPM(d);
+                    if (leadAmounts[i].marginValue > 0) {
+                        $('#tableBody').append('<tr><td>' + dater + '</td><td>Margin<td>₹' +
+                            leadAmounts[i].marginValue + '<td><td>' + leadAmounts[i]
+                            .owner_first_name + ' ' + leadAmounts[i].owner_last_name +
+                            '<td><td></tr>');
+                    }
+                }
             }
         },
         error: function(errorData) {}
