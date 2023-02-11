@@ -88,6 +88,21 @@ if( !isset($_SESSION['token']) ) {
                         <h4 class="title_value" id="lead_owner"></h4>
                     </div>
                 </div>
+
+                <div class="row">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Updated By</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="tab-pane fade show" id="activities" role="tabpanel" aria-labelledby="targets-tab">
                 <h3>Activities</h3>
@@ -129,7 +144,8 @@ $(document).ready(function() {
         success: function(data) {
             if (data.status === 1) {
                 let leadDetails = data.details;
-                console.log(leadDetails);
+                let leadAmounts = data.amounts;
+                console.log(leadAmounts);
                 $('#profile_name').html(leadDetails.first_name + ' ' + leadDetails.last_name);
                 $('#first_name').html(leadDetails.first_name);
                 $('#last_name').html(leadDetails.last_name);
