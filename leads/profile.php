@@ -166,7 +166,7 @@ $(document).ready(function() {
                         $('#tableBody').append('<tr><td>' + dater + '</td><td>Margin<td>₹' +
                             leadAmounts[i].marginValue + '<td><td>' + leadAmounts[i]
                             .owner_first_name + ' ' + leadAmounts[i].owner_last_name +
-                            '<td><td></tr>');
+                            '</td></tr>');
                     }
                 }
             }
