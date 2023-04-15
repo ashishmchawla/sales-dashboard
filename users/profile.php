@@ -43,11 +43,6 @@ if( !isset($_SESSION['token']) ) {
                 <br />
                 <div class="row">
                     <div class="col">
-                        <h6 class="title">Phone</h6>
-                        <hr />
-                        <h4 class="title_value" id="phone"></h4>
-                    </div>
-                    <div class="col">
                         <h6 class="title">Email</h6>
                         <hr />
                         <h4 class="title_value_smallcase" id="email"></h4>
@@ -173,7 +168,6 @@ $(document).ready(function() {
                 $('#first_name').html(userDetails.first_name);
                 $('#last_name').html(userDetails.last_name);
                 $('#email').html(userDetails.email);
-                $('#contact').html(userDetails.contact);
             }
         },
         error: function(errorData) {}
