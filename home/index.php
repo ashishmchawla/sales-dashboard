@@ -218,7 +218,7 @@ async function loadThirdPartyChart() {
     }).done(function(response) {
         console.log(response);
         if (response.status == 1) {
-            drawThirdPartyChart(response.graphData, 'Third Party Stats');
+            drawThirdPartyChart(response.graphData, 'Option brain Stats');
         }
     });
 }
