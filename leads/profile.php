@@ -151,7 +151,7 @@ $(document).ready(function() {
                 $('#first_name').html(leadDetails.first_name);
                 $('#last_name').html(leadDetails.last_name);
                 $('#email').html(leadDetails.email);
-                $('#contact').html(leadDetails.contact);
+                $('#phone').html(leadDetails.contact);
                 $('#location').html(leadDetails.location);
                 $('#account_category').html(leadDetails.account_category);
                 $('#account_code').html(leadDetails.account_code);
