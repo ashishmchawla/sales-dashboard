@@ -167,6 +167,21 @@ $(document).ready(function() {
                             leadAmounts[i].marginValue + '</td><td>' + leadAmounts[i]
                             .owner_first_name + ' ' + leadAmounts[i].owner_last_name +
                             '</td></tr>');
+                    } else if (leadAmounts[i].mfValue > 0) {
+                        $('#tableBody').append('<tr><td>' + dater + '</td><td>Mutual Funds<td>₹' +
+                            leadAmounts[i].mfValue + '</td><td>' + leadAmounts[i]
+                            .owner_first_name + ' ' + leadAmounts[i].owner_last_name +
+                            '</td></tr>');
+                    } else if (leadAmounts[i].optValue > 0) {
+                        $('#tableBody').append('<tr><td>' + dater + '</td><td>Option Brains<td>₹' +
+                            leadAmounts[i].optValue + '</td><td>' + leadAmounts[i]
+                            .owner_first_name + ' ' + leadAmounts[i].owner_last_name +
+                            '</td></tr>');
+                    } else if (leadAmounts[i].insuranceValue > 0) {
+                        $('#tableBody').append('<tr><td>' + dater + '</td><td>Insurance<td>₹' +
+                            leadAmounts[i].insuranceValue + '</td><td>' + leadAmounts[i]
+                            .owner_first_name + ' ' + leadAmounts[i].owner_last_name +
+                            '</td></tr>');
                     }
                 }
             }
