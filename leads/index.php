@@ -16,7 +16,6 @@ if( !isset($_SESSION['token']) ) {
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Email</th>
                     <th>Contact</th>
                     <th>Location</th>
                     <th>Lead Owner</th>
