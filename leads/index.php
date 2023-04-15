@@ -39,7 +39,7 @@ $(document).ready(function() {
             },
         },
         "order": [
-            [7, 'desc']
+            [6, 'desc']
         ]
     })
 
