@@ -45,7 +45,7 @@
                                 &nbsp; <?php echo $_SESSION['name']; ?>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Edit Profile</a>
+                                <!-- <a class="dropdown-item" href="#">Edit Profile</a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="../logout.php"> <i class="fas fa-sign-out-alt"></i>&nbsp;
                                     Logout</a>
