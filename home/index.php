@@ -379,6 +379,8 @@ function drawInsuranceChart(chart_data, title) {
         width: '90%',
         legend: {
             position: 'bottom',
+            slantedText: true,
+            slantedTextAngle: 90
         },
     };
 
