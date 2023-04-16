@@ -87,9 +87,13 @@ session_start();
                     password: password
                 }
             }).done(function(result) {
-                $('#token').val(result.token);
-                $('#admin_name').val(result.user.first_name + ' ' + result.user.last_name);
-                $('#sesstionCreate').submit();
+                if (result.status === 1) {
+                    $('#token').val(result.token);
+                    $('#admin_name').val(result.user.first_name + ' ' + result.user.last_name);
+                    $('#sesstionCreate').submit();
+                } else {
+                    alert(result.error_message);
+                }
             });
         }
     });
