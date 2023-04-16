@@ -378,10 +378,12 @@ function drawInsuranceChart(chart_data, title) {
         height: 400,
         width: '90%',
         legend: {
-            position: 'bottom',
+            position: 'bottom'
+        },
+        hAxis: {
             slantedText: true,
             slantedTextAngle: 90
-        },
+        }
     };
 
     var chart = new google.charts.Bar(document.getElementById('columnchart_insurance'));
