@@ -3,9 +3,11 @@
 session_start();
 session_destroy();
 
+setcookie('token', null, -1, '/'); 
+setcookie('betaToken', null, -1, '/'); 
+
 header("Location: ./");
 
-setcookie("token", $token, time() - 31536000, NULL, NULL, NULL, TRUE);
-setcookie("betaToken", $betaToken, time() - 31536000, NULL, NULL, NULL, TRUE);
+
 
 ?>
