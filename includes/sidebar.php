@@ -16,12 +16,12 @@
                 <a href="../leads/index.php" class="list-group-item list-group-item-action text-zooters">
                     <img src="../assets/people.png" height="20"> Leads
                 </a>
-                <a href="../notifications/index.php" class="list-group-item list-group-item-action text-zooters">
+                <!-- <a href="../notifications/index.php" class="list-group-item list-group-item-action text-zooters">
                     <img src="../assets/notification.png" height="20"> Push Notifications
                 </a>
                 <a href="../settings/index.php" class="list-group-item list-group-item-action text-zooters">
                     <img src="../assets/settings.png" height="20"> System Settings
-                </a>
+                </a> -->
             </div>
         </div>
 

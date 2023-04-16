@@ -80,7 +80,7 @@ session_start();
             alert('All fields are mandatory');
         } else {
             $.ajax({
-                url: base_url + '/login',
+                url: base_url + '/adminLogin',
                 type: 'POST',
                 data: {
                     email: email,
