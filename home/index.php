@@ -381,6 +381,7 @@ function drawInsuranceChart(chart_data, title) {
             position: 'bottom'
         },
         hAxis: {
+            direction: -1,
             slantedText: true,
             slantedTextAngle: 90
         }
