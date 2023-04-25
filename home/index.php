@@ -13,6 +13,7 @@ if( !isset($_SESSION['token']) ) {
 <div id="main" class="p-3 d-flex align-items-center justify-content-between">
     <h3 class="m-0">Hello, <?php echo $_SESSION['name']; ?> </h3>
     <h4 class="m-0" id="dateToday"></h4>
+    <span id="refresh"><i class="bi bi-arrow-clockwise"></i></span>
 </div>
 <div class="analytics-wrapper container-fluid">
     <div class="row">
