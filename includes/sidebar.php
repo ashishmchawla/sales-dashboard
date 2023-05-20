@@ -4,7 +4,7 @@
     <div class="d-flex" id="wrapper">
         <div class="bg-light" id="sidebar-wrapper">
             <div class="sidebar-heading" style="color:white;">
-                <img src="../assets/logo.png" style="height:50px">
+                <img src="../assets/logo.png" style="height:100px">
             </div>
             <div class="list-group list-group-flush">
                 <a href="../home/index.php" class="list-group-item list-group-item-action text-zooters">
